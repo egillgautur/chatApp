@@ -8,7 +8,11 @@ function($routeProvider) {
     }).when("/rooms", {
         templateUrl: "src/roomlist/roomlist.html",
         controller: "RoomListController"
-    }).when("/rooms/:id", {
+    }).when("/roomlist", {
+        templateUrl: "src/roomlist/roomlist.html",
+        controller: "RoomListController"
+    })
+    .when("/rooms/:id", {
         
     });
  //osfrv... (Note .otherwise() fyrir else)
