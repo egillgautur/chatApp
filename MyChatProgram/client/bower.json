@@ -23,6 +23,8 @@
     "angular": "^1.5.0",
     "angular-bootstrap": "^1.1.2",
     "angular-animate": "^1.5.0",
-    "angular-route": "^1.5.0"
+    "angular-route": "^1.5.0",
+    "angular-toastr": "^1.7.0",
+    "angular-jquery": "^0.2.1"
   }
 }
