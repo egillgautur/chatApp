@@ -1,7 +1,7 @@
 "use strict";
 
-angular.module("chatApp").controller("LoginController",
-["$scope", "ChatResource", //optional að hafa þetta, skoða betur
+angular.module('chatApp').controller("LoginController",
+["$scope", "$location", "$ChatResource", //optional að hafa þetta, skoða betur
 function LoginController($scope, $location, ChatResource) {
     
     $scope.user = "gilligoodshit";
