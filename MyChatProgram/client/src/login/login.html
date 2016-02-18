@@ -1,21 +1,19 @@
-<div>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="src/css/login.css" />
+    <title></title>
+</head>
+<body>
+<div class="login">
     <div class="row">
-        <div class="col-xs-12">
-            <label>Notendanafn:</label>
+        <div class="username">
             <input type="text"
-                ng-model="user" />
+                ng-model="user" placeholder="Username" />
         </div>
     </div>
     
-    <div class="row">
-        <div class="col-xs-12">
-            <label>Lykilorð:</label>
-            <input type="password"
-            ng-model="pass" />
-        </div>
-    </div>
-    
-    <div class="row">
+    <div class="loginbutton">
         <div class="col-xs-12">
             <button ng-click="onLogin()">Innskrá</button>
         </div>
@@ -27,4 +25,8 @@
         </div>
     </div>
 </div>
+</body>
+</html>
+
+
 

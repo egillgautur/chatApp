@@ -1,23 +1,25 @@
 "use strict";
 
 angular.module('chatApp').controller("LoginController",
-["$scope", "$location", "$ChatResource", //optional að hafa þetta, skoða betur
-function LoginController($scope, $location, ChatResource) {
-    
-    $scope.user = "gilligoodshit";
-    $scope.pass = "einarFagit";
-    $scope.errorMessage = "";
-    
+["$scope", "$location", "$rootScope", "$routeParams", 
+function LoginController($scope, $location, $rootScope, $routeParams) {
+    $scope.nickname = "";
     $scope.onLogin = function onLogin() {
-        ChatResource.login($scope.user, $scope.pass, function(success) {
-            if(!success) {
-                $scope.errorMessage = "Innskráning mistókst og einar is a fagit";
+            if($scope.nickname === "") {
+                //$scope.errorMessage = "Innskráning mistókst og einar is a fagit";
+                toastr.error("Einar is a fag")
             } else { 
-                $location("/roomlist");
-                //TO DO: Senda notanda á herbergjalistann
+                //$location("/roomlist");
+                socket.emit("adduser", $scope.nickname, function(available) {
+                    if(available) {
+                        $location.path("roomlist/" + $scope.nickname);
+                    } else {
+                        toastr.error("Einar is a superfagit")
+                    }
+                })
             }
-        })
-    };
+    }
+ 
     
 
 }]);

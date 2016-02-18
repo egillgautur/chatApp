@@ -1,4 +1,4 @@
-angular.module("chatApp").controller("RommlistController",
+angular.module("chatApp").controller("RoomlistController",
 function RoomlistController($scope, socket) {
     
     socket.emit("rooms");
