@@ -1,10 +1,18 @@
 <!-- tafla eða listi, sjáum hvor er flottara -->
 <div>
-	<lable>Channel name:</lable>
-	<button>Create</button>
+	<span>blabla</span>
+	<div>
+		<input type="text" ng-model="roomname"/>
+		<button ng-click="createRoom()">Create Room</button>
+	</div>
+	<div>
+		<ul>
+			<li ng-repeat="room in roomList">
+				<a ng-href="#/room/{{name}}">{{name}}</a>
+			</li>
+		</ul>
+	</div>
+	{{errorMessage}}
 </div>
-<ul>
-    <li ng-repeat="room in roomlist">
-        <a ng-href="#/rooms/{{room.id}}">{{room.name}}</a>
-    </li>
-</ul>
+
+<!-- ng-href="#/rooms/{{room.id}}" -->

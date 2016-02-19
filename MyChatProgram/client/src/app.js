@@ -5,15 +5,16 @@ function($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: 'src/login/login.html',
         controller: 'LoginController'
-    }).when("/rooms", {
+    }).when("/roomlist/:user", {
         templateUrl: "src/roomlist/roomlist.html",
         controller: "RoomListController"
-    }).when("/roomlist", {
+    })
+    .when("/rooms", {
         templateUrl: "src/roomlist/roomlist.html",
         controller: "RoomListController"
     })
     .when("/rooms/:id", {
         
-    });
+    })
  //osfrv... (Note .otherwise() fyrir else)
 }]);
