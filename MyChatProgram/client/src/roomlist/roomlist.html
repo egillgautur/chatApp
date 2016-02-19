@@ -1,14 +1,14 @@
 <!-- tafla eða listi, sjáum hvor er flottara -->
 <div>
-	<span>blabla</span>
+	<span>Hello {{currUser}}</span>
 	<div>
-		<input type="text" ng-model="roomname"/>
+		<input type="text" ng-model="roomName"/>
 		<button ng-click="createRoom()">Create Room</button>
 	</div>
 	<div>
 		<ul>
-			<li ng-repeat="room in roomList">
-				<a ng-href="#/room/{{name}}">{{room}}</a>
+			<li ng-repeat="roomName in roomNames">
+				<a ng-href="#/room/{{roomName}}">{{roomName}}</a>
 			</li>
 		</ul>
 	</div>
