@@ -7,11 +7,11 @@ function($routeProvider) {
         controller: 'LoginController'
     }).when("/roomlist/:user", {
         templateUrl: "src/roomlist/roomlist.html",
-        controller: "RoomListController"
+        controller: "RoomlistController"
     })
     .when("/rooms", {
         templateUrl: "src/roomlist/roomlist.html",
-        controller: "RoomListController"
+        controller: "RoomlistController"
     })
     .when("/rooms/:id", {
         
