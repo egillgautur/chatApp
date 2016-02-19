@@ -9,14 +9,6 @@ function RoomlistController($scope, $location, $rootScope, $routeParams, socket)
 
     socket.emit("rooms");
     
-    /*socket.on("roomList", function (rooms) {
-        $scope.roomList = [];
-        
-        for(var room in rooms) {
-            $scope.roomList.push(room);
-        }
-    });*/
-    
     $scope.createRoom = function createRoom() {
 		var obj = {room: $scope.roomName, pass: undefined};
 		socket.emit("joinroom", obj, function(accepted, reason) {
@@ -24,8 +16,9 @@ function RoomlistController($scope, $location, $rootScope, $routeParams, socket)
 				$scope.errorMessage = reason;
 			} else {
                 console.log("sdfs");
+                console.log($scope.currUser);
                 console.log($scope.roomName);
-				$location.path("room/" + $scope.roomName);
+				$location.path("room/" + $scope.roomName + "/" + $scope.currUser);
 			}
 		});
 	}
@@ -38,14 +31,4 @@ function RoomlistController($scope, $location, $rootScope, $routeParams, socket)
     
     socket.on("roomlist", funcRoomlistChanges);
     
-    $scope.roomlist = [ {
-        name: "Einar is a fagit",
-        id: 1
-    }, {
-        name: "Einar is a superfagit",
-        id: 2
-    }, {
-        name: "Einar is a ultramegafagit",
-        id: 3
-    }]; //osfrv......
 }]);

@@ -9,9 +9,9 @@ function($routeProvider) {
         templateUrl: "src/roomlist/roomlist.html",
         controller: "RoomlistController"
     })
-    .when("/rooms", {
-        templateUrl: "src/roomlist/roomlist.html",
-        controller: "RoomlistController"
+    .when("/room/:id/:user", {
+        templateUrl: "src/room/room.html",
+        controller: "RoomController"
     })
     .when("/rooms/:id", {
         
