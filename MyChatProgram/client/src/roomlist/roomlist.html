@@ -1,6 +1,6 @@
 <!-- tafla eða listi, sjáum hvor er flottara -->
 <div>
-	<span>Hello {{currUser}}</span>
+	<span>Hello</span>
 	<div>
 		<input type="text" ng-model="roomName"/>
 		<button ng-click="createRoom()">Create Room</button>
@@ -11,6 +11,7 @@
 				<a ng-href="#/room/{{roomName}}">{{roomName}}</a>
 			</li>
 		</ul>
+        
 	</div>
 	{{errorMessage}}
 </div>

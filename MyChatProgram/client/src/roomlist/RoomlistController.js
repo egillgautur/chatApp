@@ -3,24 +3,29 @@
 angular.module("chatApp").controller("RoomlistController",
 ["$scope", "$location", "$rootScope", "$routeParams", "socket",
 function RoomlistController($scope, $location, $rootScope, $routeParams, socket) {
-    $scope.roomlist = [];
+    $scope.roomlist = {};
     $scope.roomNames = [];
     $scope.currUser = $routeParams.user;
 
     socket.emit("rooms");
     
     $scope.createRoom = function createRoom() {
-		var obj = {room: $scope.roomName, pass: undefined};
-		socket.emit("joinroom", obj, function(accepted, reason) {
-			if (!accepted) {
-				$scope.errorMessage = reason;
-			} else {
-                console.log("sdfs");
-                console.log($scope.currUser);
-                console.log($scope.roomName);
-				$location.path("room/" + $scope.roomName + "/" + $scope.currUser);
-			}
-		});
+		var obj = {
+            room: $scope.roomName, pass: undefined
+        };
+        
+        if($scope.roomName !== undefined) {
+            socket.emit("joinroom", obj, function(accepted, reason) {
+                if (!accepted) {
+                    $scope.errorMessage = reason;
+                } else {
+                    console.log("sdfs");
+                    console.log($scope.currUser);
+                    console.log($scope.roomName);
+                    $location.path("room/" + $scope.roomName);
+                }
+            });
+        }
 	}
    
     var funcRoomlistChanges = function(roomlist) {

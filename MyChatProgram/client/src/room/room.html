@@ -1,6 +1,52 @@
-<div>
-	<h3>Hello {{currUser}}</h3>
+    <div>
+        <h3>Hello</h3>
 
-	<button ng-click="leaveRoom()">Leave Room</button>
-	{{errorMessage}}
-</div>
+        <button ng-click="leaveRoom()">Leave Room</button>
+        {{errorMessage}}
+    </div>
+
+
+
+    <div class="col-md-9">
+        <div id="chatWindow">
+            <ul ng-hide="private">
+                <li ng-repeat="message in messages" >
+                    <span>{{message.timestamp | date:'dd-MM HH:mm:ss'}}</span>
+                    <span>{{message.nick}} </span>
+                    <span>{{message.message}}</span>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <textarea rows="3" ng-model="message" autocomplete="off" placeholder="Write message"></textarea>
+            <button class="btn btn-primary" ng-click="sendMessage()" ng-hide="private">Send</button>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <h4>Ops in this room</h4>
+        <div class="well">
+            <ul class="list">
+                <li ng-repeat="op in ops">
+                    <span class="pointer">{{op}}</span>
+                </li>
+            </ul>
+        </div>
+
+        <h4>Users in this room</h4>
+        <div class="well">	
+            <ul class="list">
+                <li ng-repeat="user in users">
+                    <span class="pointer">{{user}}</span>
+                    <span ng-cloak>
+                        <div>
+                        <button ng-click="kickUser(user)" ng-model="kickedUser">Kick</button>
+                        <button ng-click="banUser(user)" ng-model="bannedUser">Ban</button>
+                        </div>
+                </span>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+                

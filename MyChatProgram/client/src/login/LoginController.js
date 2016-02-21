@@ -10,9 +10,9 @@ function LoginController($scope, $location, $rootScope, $routeParams, socket) {
             } else {    
                 socket.emit("adduser", $scope.user, function(available) {
                     if(available) {
-                        $location.path("/roomlist/" + $scope.user);
+                        $location.path("/roomlist/");
                     } else {
-                        $scope.errorMessage = "Einar is a superfagit"
+                        $scope.errorMessage = "Nickname already taken, choose another"
                     }
                 })
             }
