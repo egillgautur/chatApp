@@ -12,6 +12,8 @@ function RoomController($scope, $location, $rootScope, $routeParams, socket) {
     $scope.isOp = false;
     $scope.errorMessage = '';
     $scope.userName = '';
+    $scope.prvMessages = [];
+    $scope.messageString = '';
     socket.emit("rooms");
     
     var joinObj = {
@@ -52,17 +54,20 @@ function RoomController($scope, $location, $rootScope, $routeParams, socket) {
 	};
     
     $scope.sendMessage = function () {
-        var data = {
-            "roomName": $scope.id,
-            "msg": $scope.message
-        };
-            
-        socket.emit("sendmsg", data);
-        $scope.message = "";
-        console.log($scope.id);
-        console.log("siddiddu");
-        console.log(data);
-
+        if($scope.messageString !== '') {
+            var data = {
+                "roomName": $scope.id,
+                "msg": $scope.messageString
+            };
+                
+            socket.emit("sendmsg", data);
+            $scope.messageString = "";
+            console.log($scope.id);
+            console.log("siddiddu");
+            console.log(data);
+        } else {
+            $scope.errorMessage = "You cannot send an empty message!"
+        }
     };
     
     socket.on('updatechat', function(roomName, messageHistory) {
@@ -132,6 +137,33 @@ function RoomController($scope, $location, $rootScope, $routeParams, socket) {
                 $location.path("/roomlist/");
             }
         }
+    })
+    
+    $scope.sendPrivateMessage = function(user) {
+        if($scope.messageString !== '') {
+            var message = {
+                nick: user,
+                message: $scope.messageString
+            };
+            socket.emit('privatemsg', message, function (success) {
+                if(!success) {
+                    $scope.errorMessage = "Could not send!"
+                } else {
+                    $scope.messageString = '';
+                }
+            })
+        } else {
+            $scope.errorMessage = "You cannot send an empty message!"
+        }
+    }
+    
+    socket.on('recv_privatemsg', function(userName, message) {
+        var msg = {
+            nick: userName,
+            message: message
+        };
+        
+        $scope.prvMessages.push(msg);
     })
     
 }]);

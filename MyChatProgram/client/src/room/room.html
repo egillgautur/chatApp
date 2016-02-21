@@ -1,7 +1,8 @@
     <div>
         <h3>Hello</h3>
 
-        <button ng-click="leaveRoom()">Leave Room</button>
+        <button class="col-md-4" ng-click="leaveRoom()">Leave Room</button>
+        <button class="col-md-8" class="btn btn-default" ng-click="private=true" ng-class="{ 'active': private }">Private Messages</button>
         {{errorMessage}}
     </div>
 
@@ -16,9 +17,17 @@
                     <span>{{message.message}}</span>
                 </li>
             </ul>
+            
+            <ul id="messages" ng-show="private" >
+                <li ng-repeat="msg in prvMessages">
+                    <span class="prvtNick">{{msg.nick}} </span>
+                    <span>{{msg.message}}</span>
+                </li>
+		    </ul>
+            
         </div>
         <div>
-            <textarea rows="3" ng-model="message" autocomplete="off" placeholder="Write message"></textarea>
+            <textarea rows="3" ng-model="messageString" autocomplete="off" placeholder="Write message"></textarea>
             <button class="btn btn-primary" ng-click="sendMessage()" ng-hide="private">Send</button>
         </div>
     </div>
@@ -29,6 +38,7 @@
             <ul class="list">
                 <li ng-repeat="op in ops">
                     <span class="pointer">{{op}}</span>
+                    <button class="asText red" ng-click="sendPrivateMessage(op)">Send Message</button>
                 </li>
             </ul>
         </div>
@@ -42,6 +52,7 @@
                         <div>
                         <button ng-click="kickUser(user)" ng-model="kickedUser">Kick</button>
                         <button ng-click="banUser(user)" ng-model="bannedUser">Ban</button>
+                        <button class="asText red" ng-click="sendPrivateMessage(user)">Send Message</button>
                         </div>
                 </span>
                 </li>
