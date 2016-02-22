@@ -16,6 +16,5 @@ function($routeProvider) {
     .when("/room/:id", {
         templateUrl: "src/room/room.html",
         controller: "RoomController"
-    })
- //osfrv... (Note .otherwise() fyrir else)
+    });
 }]);

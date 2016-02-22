@@ -1,8 +1,0 @@
-#chatWindow {
-	height: 200px;
-	border: 1px solid;
-	padding-bottom: 5px;
-	overflow-y: auto;
-	overflow-x: hidden;
-	word-wrap: break-word; 
-}

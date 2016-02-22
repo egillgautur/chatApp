@@ -6,17 +6,16 @@ function LoginController($scope, $location, $rootScope, $routeParams, socket) {
     $scope.user = '';
     $scope.login = function() {
             if($scope.user === '') {
-                $scope.errorMessage = "Please choose a nickname"
+                $scope.errorMessage = "Please choose a nickname";
             } else {    
                 socket.emit("adduser", $scope.user, function(available) {
                     if(available) {
                         $location.path("/roomlist/");
                     } else {
-                        $scope.errorMessage = "Nickname already taken, choose another"
+                        $scope.errorMessage = "Nickname already taken, choose another";
                     }
-                })
+                });
             }
-    }
-    //test
+    };
 
 }]);

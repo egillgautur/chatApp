@@ -26,13 +26,13 @@ function RoomlistController($scope, $location, $rootScope, $routeParams, socket)
                 }
             });
         }
-	}
+	};
    
     var funcRoomlistChanges = function(roomlist) {
         console.log(roomlist);
         $scope.roomlist = roomlist;
         $scope.roomNames = Object.keys(roomlist);
-    }
+    };
     
     socket.on("roomlist", funcRoomlistChanges);
     

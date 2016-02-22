@@ -23,7 +23,7 @@ function RoomController($scope, $location, $rootScope, $routeParams, socket) {
 	socket.emit('joinroom', joinObj, function (success, reason) {
 		if (!success) {
 			$scope.banned = true;
-			$scope.errorMessage = "You are banned"
+			$scope.errorMessage = "You are banned";
 			$location.path('/roomlist/');
 		}
 	});
@@ -43,7 +43,7 @@ function RoomController($scope, $location, $rootScope, $routeParams, socket) {
                 $location.path("/roomlist/");
             }
         }
-    })
+    });
     
     
 	$scope.leaveRoom = function () {
@@ -66,7 +66,7 @@ function RoomController($scope, $location, $rootScope, $routeParams, socket) {
             console.log("siddiddu");
             console.log(data);
         } else {
-            $scope.errorMessage = "You cannot send an empty message!"
+            $scope.errorMessage = "You cannot send an empty message!";
         }
     };
     
@@ -91,7 +91,7 @@ function RoomController($scope, $location, $rootScope, $routeParams, socket) {
             $scope.users = users;
             $scope.ops = ops;
         }
-    })
+    });
     
     $scope.kickUser = function(kickedUser) {
         var kick = {
@@ -101,7 +101,7 @@ function RoomController($scope, $location, $rootScope, $routeParams, socket) {
         
         socket.emit('kick', kick, function (success) {
             if(!success) {
-                $scope.errorMessage = "Not able to kick user"
+                $scope.errorMessage = "Not able to kick user";
             }
         });
     };
@@ -110,11 +110,11 @@ function RoomController($scope, $location, $rootScope, $routeParams, socket) {
         if(room === $scope.id) {
             if(user === $scope.userName) {
                 console.log("kicked you fucker");
-                $scope.errorMessage = "You have been kicked from this room"
+                $scope.errorMessage = "You have been kicked from this room";
                 $location.path("/roomlist/");
             }
         }
-    })
+    });
     
         $scope.banUser = function(bannedUser) {
         var ban = {
@@ -124,7 +124,7 @@ function RoomController($scope, $location, $rootScope, $routeParams, socket) {
         
         socket.emit('ban', ban, function (success) {
             if(!success) {
-                $scope.errorMessage = "Not able to ban user"
+                $scope.errorMessage = "Not able to ban user";
             }
         });
     };
@@ -133,11 +133,11 @@ function RoomController($scope, $location, $rootScope, $routeParams, socket) {
         if(room === $scope.id) {
             if(user === $scope.userName) {
                 console.log("banned you fucker");
-                $scope.errorMessage = "You have been banned from this room"
+                $scope.errorMessage = "You have been banned from this room";
                 $location.path("/roomlist/");
             }
         }
-    })
+    });
     
     $scope.sendPrivateMessage = function(user) {
         if($scope.messageString !== '') {
@@ -147,15 +147,15 @@ function RoomController($scope, $location, $rootScope, $routeParams, socket) {
             };
             socket.emit('privatemsg', message, function (success) {
                 if(!success) {
-                    $scope.errorMessage = "Could not send!"
+                    $scope.errorMessage = "Could not send!";
                 } else {
                     $scope.messageString = '';
                 }
-            })
+            });
         } else {
-            $scope.errorMessage = "You cannot send an empty message!"
+            $scope.errorMessage = "You cannot send an empty message!";
         }
-    }
+    };
     
     socket.on('recv_privatemsg', function(userName, message) {
         var msg = {
@@ -164,6 +164,6 @@ function RoomController($scope, $location, $rootScope, $routeParams, socket) {
         };
         
         $scope.prvMessages.push(msg);
-    })
+    });
     
 }]);
