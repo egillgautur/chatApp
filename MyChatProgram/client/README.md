@@ -3,7 +3,7 @@ INSTRUCTIONS ON HOW TO INSTALL AND RUN THE APPLICATION
 -Type 'npm install' in command prompt/terminal
 -Type 'npm install bower' in command prompt/terminal
 -Type 'bower install angular' in command prompt/terminal
--Type 'bower install angular-animate' in command prompt/terminal
+-Type 'bower install socket.io' in command prompt/terminal
 -Type 'bower install angular-route' in command prompt/terminal
 -Type 'bower install angular-bootstrap' in command prompt/terminal
 -Type 'node chatserver.js' in command prompt/terminal
