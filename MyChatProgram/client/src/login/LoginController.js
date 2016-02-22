@@ -17,5 +17,6 @@ function LoginController($scope, $location, $rootScope, $routeParams, socket) {
                 })
             }
     }
+    //test
 
 }]);
