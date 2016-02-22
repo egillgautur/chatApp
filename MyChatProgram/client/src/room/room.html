@@ -1,14 +1,18 @@
-    <div>
-        <h3>Hello</h3>
+    <html>
+        <head>
+    <link href="/src/css/mainCSS.css" rel="stylesheet" type="text/css" />
+    <title></title>
 
-        <button class="col-md-2" class="btn btn-default" ng-click="private=false" ng-class="{ 'active': private }">{{id}}</button>
-        <button class="col-md-2" class="btn btn-default" ng-click="private=true" ng-class="{ 'active': private }">Private Messages</button>
-        {{errorMessage}}
+    </html>
+    <body>
+    <div class"marginleft" class="col-md-2">
+        <div class "divone">
+             <button class="buttons" ng-click="private=false" ng-class="{ 'active': private }">{{id}}</button>
+            <button class="buttons" ng-click="private=true" ng-class="{ 'active': private }">Private Messages</button>
+        </div>
     </div>
 
-
-
-    <div class="col-md-9">
+    <div class="col-md-7" class ="divtwo">
         <div id="chatWindow">
             <ul ng-hide="private">
                 <li ng-repeat="message in messages" >
@@ -26,41 +30,42 @@
 		    </ul>
             
         </div>
-        <div>
+        <div class="divthree">
             <textarea rows="3" ng-model="messageString" autocomplete="off" placeholder="Write message"></textarea>
-            <button class="btn btn-primary" ng-click="sendMessage()" ng-hide="private">Send</button>
-            <button class="col-md-2" ng-click="leaveRoom()">Leave Room</button>
+            <button ng-click="sendMessage()" ng-hide="private" class="buttons">Send</button>
+            <button ng-click="leaveRoom()" class="buttons">Leave Room</button>
         </div>
     </div>
 
-    <div class="col-md-3">
-        <h4>Ops in this room</h4>
+    <div class="col-md-3" class="divfour">
+        <h4 class="opuserstext">Ops in this room</h4>
         <div class="well">
             <ul class="list">
                 <li ng-repeat="op in ops">
                     <span class="pointer">{{op}}</span>
-                    <button class="asText red" ng-click="sendPrivateMessage(op)">Send Message</button>
+                    <button  class="buttons" class="asText red" ng-click="sendPrivateMessage(op)">Send Balloon</button>
                 </li>
             </ul>
         </div>
 
-        <h4>Users in this room</h4>
+        <h4 class="opuserstext">Users in this room</h4>
         <div class="well">	
             <ul class="list">
                 <li ng-repeat="user in users">
                     <span class="pointer">{{user}}</span>
                     <span ng-cloak>
                         <div>
-                        <button ng-click="kickUser(user)" ng-model="kickedUser">Kick</button>
-                        <button ng-click="banUser(user)" ng-model="bannedUser">Ban</button>
-                        <button class="asText red" ng-click="sendPrivateMessage(user)">Send Message</button>
+                        <button ng-click="kickUser(user)" ng-model="kickedUser" class="buttons">Kick</button>
+                        <button ng-click="banUser(user)" ng-model="bannedUser" class="buttons">Ban</button>
+                        <button ng-click="sendPrivateMessage(user)" class="buttons">Send Balloon</button>
+                        {{errorMessage}}
                         </div>
                 </span>
                 </li>
             </ul>
         </div>
-        
-        
-        
     </div>
+
+    </body>
+    </head>
                 
