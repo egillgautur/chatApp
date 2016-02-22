@@ -1,6 +1,6 @@
     <html>
         <head>
-    <link href="/src/css/mainCSS.css" rel="stylesheet" type="text/css" />
+    <link href="/css/mainCSS.css" rel="stylesheet" type="text/css" />
     <title></title>
 
     </html>
@@ -16,7 +16,6 @@
         <div id="chatWindow">
             <ul ng-hide="private">
                 <li ng-repeat="message in messages" >
-                    <span>{{message.timestamp | date:'dd-MM HH:mm:ss'}}</span>
                     <span>{{message.nick}}: </span>
                     <span>{{message.message}}</span>
                 </li>
