@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="src/css/login.css" />
     <link href="/src/css/mainCSS.css" rel="stylesheet" type="text/css" />
     <title></title>
 </head>
 <body>
+    <div> 
+    <h2 class="htwo">
+        ChatBalloon
+    </h2>
+    </div>
+    <h4 class="loginh4">Login</h4>
     <div class="grad">
         <div class="login">
             <div class="row">
                 <div class="username">
                     <input type="text"
-                        ng-model="user" placeholder="Username" id="user" name="user"/>
+                        ng-model="user" placeholder="Username" class="textbox" id="user" name="user"/>
                 </div>
             </div>
             
-            <div class="loginbutton">
+            <div>
                 <div class="col-xs-12">
-                    <button ng-click="login()">Innskrá</button>
+                    <button ng-click="login()" class="loginbutton">Login</button>
                 </div>
             </div>
             

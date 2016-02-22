@@ -1,20 +1,76 @@
 .login
 {
-	width: 30%;
+	margin-top:10%;
+	margin-bottom:10%;
 	margin-left: 30%;
 }
 
 body
 {
 	width: 100%;
+	background-image: url("balloons.jpg");
+	background-size: cover;
 }
 
 .username
 {
-	margin-bottom: 10%;
+	margin-bottom: 1%;
+	border-radius:1%;
+	font-family:futura;
 }
 
 .loginbutton
 {
-	margin-left: 35%;
+	background-color: white;
+    border:none;
+    border-radius:5%;
+    color: rgb(90, 175, 255);
+    display: inline-block;
+    font-family:futura;
+    
 }
+
+.grad
+{
+	width:20%;
+	margin-left:38%;
+	border:solid;
+	border-color:white;
+	border-width:thin;
+	border-radius:2%;
+}
+
+h2, h4
+{
+	color:white;
+	font-family: futura;
+	margin-left:30%;
+}
+
+h4
+{
+	margin-top:5%;
+	margin-left:54%;
+}
+ 
+ .textbox 
+ { 
+    border: 1px solid #c4c4c4; 
+    padding: 4px; 
+    border-radius: 4px; 
+    -moz-border-radius: 4px; 
+    -webkit-border-radius: 4px; 
+    box-shadow: 0px 0px 8px #d9d9d9; 
+    -moz-box-shadow: 0px 0px 8px #d9d9d9; 
+    -webkit-box-shadow: 0px 0px 8px #d9d9d9; 
+} 
+ 
+.textbox:focus 
+{ 
+    outline: none; 
+    border: 1px solid #7bc1f7; 
+    box-shadow: 0px 0px 8px #7bc1f7; 
+    -moz-box-shadow: 0px 0px 8px #7bc1f7; 
+    -webkit-box-shadow: 0px 0px 8px #7bc1f7; 
+} 
+

@@ -1,17 +1,39 @@
 <!-- tafla eða listi, sjáum hvor er flottara -->
-<div>
-	<span>Hello</span>
-	<div>
-		<input type="text" ng-model="roomName"/>
-		<button ng-click="createRoom()">Create Room</button>
-	</div>
-	<div>
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="/src/css/mainCSS.css" rel="stylesheet" type="text/css" />
+    <title></title>
+</head>
+<body>
+    <div> 
+    	<h2 class="htwo">
+        ChatBalloon
+   	 </h2>
+    </div>
+    <div><h4 class="hfour">BalloonRooms</h4></div>  
+ 
+    <div class="grad">
+       <div class = "roomtextbox">
+				<div class="username">
+					<input type="text" ng-model="roomName" class="textbox" />
+				</div>
+			<div>
+				<button ng-click="createRoom()" class="createbutton">Create Room</button>
+			</div>
+		<div>
 		<ul>
-			<li ng-repeat="roomName in roomNames">
-				<a ng-href="#/room/{{roomName}}">{{roomName}}</a>
+			<li ng-repeat="roomName in roomNames" class="roomlistnames" >
+				<a ng-href="#/room/{{roomName}}" class="roomlistnames">{{roomName}}</a>
 			</li>
 		</ul>
         
 	</div>
 	{{errorMessage}}
 </div>
+    </div>
+</body>
+</html>
+
+
+
