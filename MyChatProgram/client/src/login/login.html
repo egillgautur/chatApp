@@ -2,29 +2,32 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="src/css/login.css" />
+    <link href="/src/css/mainCSS.css" rel="stylesheet" type="text/css" />
     <title></title>
 </head>
 <body>
-<div class="login">
-    <div class="row">
-        <div class="username">
-            <input type="text"
-                ng-model="user" placeholder="Username" id="user" name="user"/>
+    <div class="grad">
+        <div class="login">
+            <div class="row">
+                <div class="username">
+                    <input type="text"
+                        ng-model="user" placeholder="Username" id="user" name="user"/>
+                </div>
+            </div>
+            
+            <div class="loginbutton">
+                <div class="col-xs-12">
+                    <button ng-click="login()">Innskrá</button>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-12">
+                    {{errorMessage}}
+                </div>
+            </div>
         </div>
     </div>
-    
-    <div class="loginbutton">
-        <div class="col-xs-12">
-            <button ng-click="login()">Innskrá</button>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-xs-12">
-            {{errorMessage}}
-        </div>
-    </div>
-</div>
 </body>
 </html>
 

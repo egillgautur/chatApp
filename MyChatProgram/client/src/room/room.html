@@ -1,8 +1,8 @@
     <div>
         <h3>Hello</h3>
 
-        <button class="col-md-4" ng-click="leaveRoom()">Leave Room</button>
-        <button class="col-md-8" class="btn btn-default" ng-click="private=true" ng-class="{ 'active': private }">Private Messages</button>
+        <button class="col-md-2" class="btn btn-default" ng-click="private=false" ng-class="{ 'active': private }">{{id}}</button>
+        <button class="col-md-2" class="btn btn-default" ng-click="private=true" ng-class="{ 'active': private }">Private Messages</button>
         {{errorMessage}}
     </div>
 
@@ -13,7 +13,7 @@
             <ul ng-hide="private">
                 <li ng-repeat="message in messages" >
                     <span>{{message.timestamp | date:'dd-MM HH:mm:ss'}}</span>
-                    <span>{{message.nick}} </span>
+                    <span>{{message.nick}}: </span>
                     <span>{{message.message}}</span>
                 </li>
             </ul>
@@ -29,6 +29,7 @@
         <div>
             <textarea rows="3" ng-model="messageString" autocomplete="off" placeholder="Write message"></textarea>
             <button class="btn btn-primary" ng-click="sendMessage()" ng-hide="private">Send</button>
+            <button class="col-md-2" ng-click="leaveRoom()">Leave Room</button>
         </div>
     </div>
 
@@ -58,6 +59,8 @@
                 </li>
             </ul>
         </div>
+        
+        
         
     </div>
                 
